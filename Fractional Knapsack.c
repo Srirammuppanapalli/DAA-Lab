@@ -1,4 +1,4 @@
-include <stdio.h>
+#include <stdio.h>
 struct Item {
     int weight;
     int value;
@@ -47,3 +47,14 @@ int main() {
 
     return 0;
 }
+
+Output:
+Enter number of items: 6
+Enter weight and value of item 1: 3 4
+Enter weight and value of item 2: 2 3
+Enter weight and value of item 3: 5 6
+Enter weight and value of item 4: 7 8
+Enter weight and value of item 5: 2 20
+Enter weight and value of item 6: 9 91
+Enter knapsack capacity: 20
+Maximum profit = 122.80
