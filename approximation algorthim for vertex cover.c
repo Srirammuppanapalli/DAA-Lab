@@ -50,3 +50,8 @@
 	findVertexCover(graph); 
     return 0; 
     }
+
+Output:
+Executing Vertex Cover Approximation...
+Approximate Vertex Cover: 0 1 2 3 4 
+Total vertices in the cover: 5
