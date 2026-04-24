@@ -20,3 +20,7 @@ int main() {
     printf("fibanoacci term is :%d",fib(n));
     return 0;
 }
+
+Output:
+Enter the number of terms: 9
+fibanoacci term is :34
