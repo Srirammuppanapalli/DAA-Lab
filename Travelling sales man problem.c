@@ -58,3 +58,17 @@ for (int i = 0; i < n; i++)
 
     return 0;
 }
+
+Output:
+enter number of cities: 4
+Enter cost matrix:
+0 10 15 20
+10 0 25 35
+15 35 0 30
+20 25 30 0
+Given Cost Matrix
+| 0  10  15  20 |
+| 10  0  25  35 |
+| 15  35  0  30 |
+| 20  25  30  0 |
+Minimum travelling cost: 80
