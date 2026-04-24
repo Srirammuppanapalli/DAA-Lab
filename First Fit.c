@@ -27,7 +27,7 @@ void firstFit(int items[], int n, int capacity)
         {
             if (bin[j] >= items[i])
             {
-                bin[j] -= items[i]
+                bin[j] -= items[i];
                 printf("Item %d placed in Bin %d\n", items[i], j + 1);
                 placed = 1;
                 break;           
@@ -70,3 +70,24 @@ int main()
     firstFit(items, n, capacity);
 
     return 0;
+}
+
+Output:
+Enter number of items: 6
+Enter item sizes:
+Item 1: 3
+Item 2: 5
+Item 3: 1
+Item 4: 5
+Item 5: 9
+Item 6: 3
+Enter bin capacity: 10
+
+Executing First Fit Algorithm
+Item 3 placed in Bin 1
+Item 5 placed in Bin 1
+Item 1 placed in Bin 1
+Item 5 placed in Bin 2
+Item 9 placed in Bin 3
+Item 3 placed in Bin 2
+Total bins used = 3
