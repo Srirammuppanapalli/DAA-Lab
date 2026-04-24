@@ -1,4 +1,3 @@
-Program:
 #include <stdio.h>
 void toh(int diskcount, char s, char d, char t){
     if (diskcount==1)
@@ -17,3 +16,21 @@ int main() {
     toh(n,'s','d','t');
     return 0;
 }    
+Output:
+enter number of disks: 4
+ 
+ move disk 1 from s to t 
+ move disk 2 from s to d 
+ move disk 1 from t to d 
+ move disk 3 from s to t 
+ move disk 1 from d to s 
+ move disk 2 from d to t 
+ move disk 1 from s to t 
+ move disk 4 from s to d 
+ move disk 1 from t to d 
+ move disk 2 from t to s 
+ move disk 1 from d to s 
+ move disk 3 from t to d 
+ move disk 1 from s to t 
+ move disk 2 from s to d 
+ move disk 1 from t to d
