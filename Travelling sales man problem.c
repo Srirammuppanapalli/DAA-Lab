@@ -1,64 +1,91 @@
-#include<stdio.h>
-#include<limits.h>
+Aim:
+To implement the Travelling Salesman Problem (TSP) using Dynamic Programming with Bitmasking in C to find the minimum cost Hamiltonian tour starting from city 0.
+
+Program:
+#include <stdio.h>
+#include <limits.h>
+
 #define MAXN 15
 #define INF INT_MAX
-int n;
-int d[MAXN][MAXN];
-int  dp[MAXN][1<<MAXN];
-int g(int i,int s)
+
+int n;                     // Number of cities
+int d[MAXN][MAXN];        // Distance (cost) matrix
+int dp[MAXN][1 << MAXN];  // DP table for memoization
+
+// Recursive function to compute minimum cost
+int g(int i, int s)
 {
-    if (s==0)
+    // Base case: if no cities left to visit, return cost to go back to start
+    if (s == 0)
         return d[i][0];
-    if (dp[i][s] !=-1)
+
+    // If already computed, return stored value
+    if (dp[i][s] != -1)
         return dp[i][s];
-    int mincost=INF;
-    for (int k=0;k<n;k++)
+
+    int mincost = INF;
+
+    // Try visiting all remaining cities
+    for (int k = 0; k < n; k++)
     {
-        if(s&(1<<k))
+        // Check if city k is unvisited in set s
+        if (s & (1 << k))
         {
-            int cost=d[i][k]+g(k,s & ~(1<<k));
-            if (cost<mincost)
+            // Cost = current path + cost from k with remaining cities
+            int cost = d[i][k] + g(k, s & ~(1 << k));
+
+            // Update minimum cost
+            if (cost < mincost)
             {
-                mincost=cost;
+                mincost = cost;
             }
         }
     }
-    return dp[i][s]=mincost;
+
+    // Store result in DP table
+    return dp[i][s] = mincost;
 }
+
 int main()
 {
-    printf("enter number of cities: ");
-    scanf("%d",&n);
+    printf("Enter number of cities: ");
+    scanf("%d", &n);
+
     printf("Enter cost matrix:\n");
-for (int i = 0; i < n; i++)
+
+    // Input cost matrix
+    for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             scanf("%d", &d[i][j]);
-for (int i = 0; i < n; i++)
-        for (int mask = 0; mask < (1 << n); mask++)
-        {
-            dp[i][mask] = -1;
-        }
 
+    // Initialize DP table with -1
+    for (int i = 0; i < n; i++)
+        for (int mask = 0; mask < (1 << n); mask++)
+            dp[i][mask] = -1;
+
+    // Create bitmask for all cities except starting city (0)
     int S = 0;
     for (int i = 1; i < n; i++)
         S |= (1 << i);
 
+    // Compute minimum travelling cost starting from city 0
     int result = g(0, S);
 
-    printf("Given Cost Matrix\n");
+    // Print cost matrix
+    printf("\nGiven Cost Matrix:\n");
     for (int i = 0; i < n; i++)
     {
-       
         printf("|");
         for (int j = 0; j < n; j++)
             printf(" %d ", d[i][j]);
         printf("|\n");
     }
+
+    // Print final result
     printf("Minimum travelling cost: %d\n", result);
 
     return 0;
 }
-
 Output:
 enter number of cities: 4
 Enter cost matrix:
