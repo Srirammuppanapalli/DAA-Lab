@@ -1,4 +1,4 @@
-Aim
+Aim:
 To implement the Best Fit Bin Packing Algorithm in C, which places each item into the bin that leaves the least remaining space after insertion, thereby optimizing space utilization and minimizing the number of bins used.
 #include <stdio.h>
 
